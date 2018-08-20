@@ -12,6 +12,8 @@ public abstract class Person implements Insertable {
     private String email;
     private String phone;
     private String address;
+    private String photo;
+    private String signature;
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -41,6 +43,10 @@ public abstract class Person implements Insertable {
         this.address = address;
     }
 
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -67,5 +73,17 @@ public abstract class Person implements Insertable {
 
     public String getAddress() {
         return address;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
     }
 }
