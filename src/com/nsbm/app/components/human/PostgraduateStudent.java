@@ -20,4 +20,12 @@ public class PostgraduateStudent extends Student {
     public PostgraduateStudent retrieveFromDatabase() {
         return null;
     }
+
+    public void setPostQualifications(PostQualification ...postQualifications) {
+        this.postQualifications = postQualifications;
+    }
+
+    public PostQualification[] getPostQualifications() {
+        return postQualifications;
+    }
 }

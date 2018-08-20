@@ -19,4 +19,12 @@ public class UndergraduateStudent extends Student {
     public UndergraduateStudent retrieveFromDatabase() {
         return null;
     }
+
+    public void setAlResults(ALResult ...alResults) {
+        this.alResults = alResults;
+    }
+
+    public ALResult[] getAlResults() {
+        return alResults;
+    }
 }

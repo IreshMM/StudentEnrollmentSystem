@@ -25,4 +25,44 @@ public class Invoice implements Insertable {
     public void removeFromDatabase() {
 
     }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public void setInvoiceID(String invoiceID) {
+        this.invoiceID = invoiceID;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public void setEnrollments(Enrollment ...enrollments) {
+        this.enrollments = enrollments;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public String getInvoiceID() {
+        return invoiceID;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public Enrollment[] getEnrollments() {
+        return enrollments;
+    }
 }
