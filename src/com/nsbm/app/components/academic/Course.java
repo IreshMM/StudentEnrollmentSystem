@@ -6,6 +6,11 @@ public class Course implements Insertable {
     private String courseCode;
     private String title;
 
+    public Course(String courseCode, String title) {
+        this.courseCode = courseCode;
+        this.title = title;
+    }
+
     @Override
     public void insertToDatabase() {
 

@@ -2,7 +2,7 @@ package com.nsbm.app.components.human;
 
 import com.nsbm.app.database.Insertable;
 
-import java.util.Date;
+import java.sql.Date;
 
 public abstract class Person implements Insertable {
     private String firstName;
