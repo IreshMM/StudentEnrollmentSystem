@@ -24,4 +24,20 @@ public class Lecture extends Session implements Insertable {
     public void removeFromDatabase() {
 
     }
+
+    public void setLectureID(int lectureID) {
+        this.lectureID = lectureID;
+    }
+
+    public void setLecturer(Lecturer lecturer) {
+        this.lecturer = lecturer;
+    }
+
+    public int getLectureID() {
+        return lectureID;
+    }
+
+    public Lecturer getLecturer() {
+        return lecturer;
+    }
 }

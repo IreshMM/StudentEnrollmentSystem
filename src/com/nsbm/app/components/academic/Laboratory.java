@@ -20,4 +20,20 @@ public class Laboratory implements Insertable {
     public void removeFromDatabase() {
 
     }
+
+    public void setLabID(String labID) {
+        this.labID = labID;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getLabID() {
+        return labID;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 }

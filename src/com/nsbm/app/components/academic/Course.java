@@ -20,4 +20,20 @@ public class Course implements Insertable {
     public void removeFromDatabase() {
 
     }
+
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getCourseCode() {
+        return courseCode;
+    }
+
+    public String getTitle() {
+        return title;
+    }
 }

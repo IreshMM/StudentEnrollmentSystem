@@ -20,4 +20,20 @@ public class Faculty implements Insertable {
     public void removeFromDatabase() {
 
     }
+
+    public void setFacultyID(int facultyID) {
+        this.facultyID = facultyID;
+    }
+
+    public void setFacultyName(String facultyName) {
+        this.facultyName = facultyName;
+    }
+
+    public int getFacultyID() {
+        return facultyID;
+    }
+
+    public String getFacultyName() {
+        return facultyName;
+    }
 }

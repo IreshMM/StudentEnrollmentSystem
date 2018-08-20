@@ -22,4 +22,36 @@ public class Subject implements Insertable {
     public void removeFromDatabase() {
 
     }
+
+    public void setSubjectCode(String subjectCode) {
+        this.subjectCode = subjectCode;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setFee(double fee) {
+        this.fee = fee;
+    }
+
+    public void setOptional(boolean optional) {
+        this.optional = optional;
+    }
+
+    public String getSubjectCode() {
+        return subjectCode;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public double getFee() {
+        return fee;
+    }
+
+    public boolean isOptional() {
+        return optional;
+    }
 }

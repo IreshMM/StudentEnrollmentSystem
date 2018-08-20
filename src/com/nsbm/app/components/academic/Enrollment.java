@@ -25,4 +25,44 @@ public class Enrollment implements Insertable {
     public void removeFromDatabase() {
 
     }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
+
+    public void setAssessments(Assessment ...assessments) {
+        this.assessments = assessments;
+    }
+
+    public void setResultGrade(char resultGrade) {
+        this.resultGrade = resultGrade;
+    }
+
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public Assessment[] getAssessments() {
+        return assessments;
+    }
+
+    public char getResultGrade() {
+        return resultGrade;
+    }
+
+    public Invoice getInvoice() {
+        return invoice;
+    }
 }

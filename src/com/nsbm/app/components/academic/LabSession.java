@@ -25,4 +25,36 @@ public class LabSession extends Session implements Insertable {
     public void removeFromDatabase() {
 
     }
+
+    public void setLabSessionID(String labSessionID) {
+        this.labSessionID = labSessionID;
+    }
+
+    public void setLaboratory(Laboratory laboratory) {
+        this.laboratory = laboratory;
+    }
+
+    public void setInstructors(Instructor[] instructors) {
+        this.instructors = instructors;
+    }
+
+    public void setStudents(Student[] students) {
+        this.students = students;
+    }
+
+    public String getLabSessionID() {
+        return labSessionID;
+    }
+
+    public Laboratory getLaboratory() {
+        return laboratory;
+    }
+
+    public Instructor[] getInstructors() {
+        return instructors;
+    }
+
+    public Student[] getStudents() {
+        return students;
+    }
 }
