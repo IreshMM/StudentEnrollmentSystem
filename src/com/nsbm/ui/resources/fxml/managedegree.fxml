@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="1005.0" stylesheets="@../css/stylesheet.css" tabClosingPolicy="UNAVAILABLE" type="TabPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+  <tabs>
+    <Tab fx:id="manageSubjectsTab" text="Manage Subjects">
+         <content>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+               <padding>
+                  <Insets bottom="20.0" top="20.0" />
+               </padding>
+               <children>
+                  <ComboBox fx:id="selectSemesterDropDown" promptText="Please select a semester first" />
+                  <HBox prefHeight="487.0" prefWidth="1005.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="heading-1" text="Subjects" />
+                              <ScrollPane prefHeight="366.0" prefWidth="472.0" VBox.vgrow="ALWAYS">
+                                 <content>
+                                    <VBox fx:id="subjectsVBox" spacing="10.0">
+                                       <children>
+                                          <Label text="Data Structures and Algorithms I" />
+                                          <Label layoutX="10.0" layoutY="20.0" text="Software Engineering I" />
+                                          <Label layoutX="10.0" layoutY="52.0" text="Databases I" />
+                                          <Label layoutX="10.0" layoutY="84.0" text="Laboratory I" />
+                                          <Label layoutX="10.0" layoutY="116.0" text="Computer Systems" />
+                                          <Label layoutX="10.0" layoutY="148.0" text="Programming I" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </ScrollPane>
+                              <HBox alignment="BOTTOM_RIGHT" spacing="10.0">
+                                 <children>
+                                    <Button fx:id="subjectAddNewBtn" mnemonicParsing="false" text="Add new" />
+                                    <Button fx:id="subjectRemoveBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" right="10.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                        <VBox layoutX="20.0" layoutY="20.0" prefHeight="200.0" prefWidth="100.0" spacing="15.0" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <children>
+                              <Label layoutX="20.0" layoutY="20.0" styleClass="heading-1" text="Academic Acitivies" />
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="472.0" spacing="15.0">
+                                       <children>
+                                          <Label prefHeight="22.0" prefWidth="199.0" text="Number of Lectures: " />
+                                          <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="220.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <TextField fx:id="subjectNumOfLectures" prefHeight="34.0" prefWidth="163.0" />
+                                                <Button fx:id="numOfLecturesUpdateBtn" mnemonicParsing="false" text="Update" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="472.0" spacing="15.0">
+                                       <children>
+                                          <Label prefHeight="22.0" prefWidth="199.0" text="Number of Lab Sessions:" />
+                                          <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="220.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <TextField fx:id="subjectNumOfLabSessions" prefHeight="34.0" prefWidth="163.0" />
+                                                <Button fx:id="numOfLabSessionsUpdateBtn" mnemonicParsing="false" text="Update" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="88.0" prefHeight="39.0" prefWidth="472.0" spacing="15.0">
+                                       <children>
+                                          <Label prefHeight="22.0" prefWidth="199.0" text="Number of Practicals:" />
+                                          <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="220.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <TextField fx:id="subjectNumberOfPracticals" prefHeight="34.0" prefWidth="163.0" />
+                                                <Button fx:id="numOfPracticalsUpdateBtn" mnemonicParsing="false" text="Update" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="49.0" prefHeight="39.0" prefWidth="472.0" spacing="15.0">
+                                       <children>
+                                          <Label prefHeight="22.0" prefWidth="199.0" text="Number of Assessments:" />
+                                          <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="220.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <TextField fx:id="subjectNumberOfAssessments" prefHeight="34.0" prefWidth="163.0" />
+                                                <Button fx:id="numOfAssessmentsUpdateBtn" mnemonicParsing="false" text="Update" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </VBox>
+                              <Label styleClass="heading-1" text="Description" />
+                              <TextArea fx:id="subjectDescriptionTextField" prefHeight="320.0" prefWidth="466.0" VBox.vgrow="ALWAYS" />
+                              <HBox alignment="BOTTOM_RIGHT" prefHeight="70.0" spacing="10.0">
+                                 <children>
+                                    <Button fx:id="subjectDescriptionUpdateBtn" mnemonicParsing="false" text="Update" />
+                                    <Button fx:id="subjectDescriptionResetBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Reset" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" right="10.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content></Tab>
+      <Tab fx:id="lecturesTab" text="Lectures">
+         <content>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+               <padding>
+                  <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+               </padding>
+               <children>
+                  <VBox alignment="TOP_CENTER" spacing="10.0">
+                     <children>
+                        <ComboBox fx:id="lecSelectSubjectDropDown" prefWidth="204.0" promptText="Select a subject" />
+                     </children>
+                  </VBox>
+                  <HBox prefHeight="437.0" prefWidth="985.0">
+                     <children>
+                        <VBox minWidth="250.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <children>
+                              <Label styleClass="heading-1" text="Lectures" />
+                              <ScrollPane prefHeight="280.0" prefWidth="303.0">
+                                 <content>
+                                    <VBox fx:id="lectureSetsVbox" spacing="10.0">
+                                       <children>
+                                          <Label text="LEC_SET0215" />
+                                          <Label layoutX="10.0" layoutY="20.0" text="LEC_SET0587" />
+                                          <Label layoutX="10.0" layoutY="52.0" text="LEC_SET0278" />
+                                          <Label layoutX="10.0" layoutY="84.0" text="LEC_SET0201" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                              <HBox alignment="BOTTOM_RIGHT" spacing="10.0">
+                                 <children>
+                                    <Button fx:id="lectureSetAddNewBtn" mnemonicParsing="false" text="Add new" />
+                                    <Button fx:id="lectureSetRemoveBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" right="10.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="437.0" prefWidth="589.0" spacing="15.0" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <children>
+                              <Label styleClass="heading-1" text="Information" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="17.0" prefWidth="472.0" spacing="10.0">
+                                 <children>
+                                    <Label prefWidth="110.0" text="Conducted By:" />
+                                    <TextField fx:id="lecConductedByTextField" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="503.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label prefHeight="22.0" prefWidth="110.0" text="Time Slot:" />
+                                          <TextField fx:id="lecTimeSlotFrom" prefHeight="34.0" prefWidth="89.0" HBox.hgrow="ALWAYS" />
+                                          <Label text="to" />
+                                          <TextField fx:id="lecTimeSlotTo" layoutX="130.0" layoutY="10.0" prefHeight="34.0" prefWidth="88.0" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="17.0" prefWidth="472.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label prefHeight="22.0" prefWidth="80.0" text="Weekday:" />
+                                          <ChoiceBox fx:id="lecWeekdayDropDown" maxWidth="1.7976931348623157E308" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="17.0" prefWidth="472.0" spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="22.0" prefWidth="110.0" text="Sessions:" />
+                                          <TextField fx:id="lecNumberOfSessions" prefHeight="34.0" prefWidth="170.0" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="479.0" spacing="10.0">
+                                       <children>
+                                          <RadioButton fx:id="lecOnceRadioBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="Once" HBox.hgrow="ALWAYS">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="lecfreq" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton fx:id="lecWeeklyRadioBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="Weekly" toggleGroup="$lecfreq" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="54.0" prefHeight="17.0" prefWidth="472.0" spacing="10.0">
+                                 <children>
+                                    <Label prefWidth="110.0" text="Venue:" />
+                                    <TextField fx:id="lecVenue" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="17.0" prefWidth="472.0" spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="22.0" prefWidth="110.0" text="From:" />
+                                          <DatePicker fx:id="lecFromDateField" maxWidth="1.7976931348623157E308" prefHeight="34.0" prefWidth="57.0" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="17.0" prefWidth="472.0" spacing="10.0">
+                                       <children>
+                                          <Label prefWidth="110.0" text="To:" />
+                                          <DatePicker fx:id="lecToDateField" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="273.0" prefHeight="17.0" prefWidth="472.0" spacing="10.0">
+                                 <children>
+                                    <Label prefWidth="110.0" text="Date:" />
+                                    <DatePicker fx:id="lecDateField" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="BOTTOM_RIGHT" spacing="10.0">
+                                 <children>
+                                    <Button fx:id="lecInformationResetBtn" mnemonicParsing="false" text="Reset" />
+                                    <Button fx:id="lecInformationUpdateBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Update" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" right="10.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </Tab>
+      <Tab fx:id="laboratoryTab" text="Laboratory">
+         <content>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+               <padding>
+                  <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+               </padding>
+               <children>
+                  <VBox alignment="TOP_CENTER" spacing="10.0">
+                     <children>
+                        <ComboBox fx:id="labSelectSubjectDropDown" prefWidth="204.0" promptText="Select a subject" />
+                     </children>
+                  </VBox>
+                  <HBox prefHeight="437.0" prefWidth="985.0">
+                     <children>
+                        <VBox minWidth="250.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <children>
+                              <Label styleClass="heading-1" text="Lab Sessions" />
+                              <ScrollPane prefHeight="379.0" prefWidth="303.0">
+                                 <content>
+                                    <VBox fx:id="labSessionsVBox" spacing="10.0">
+                                       <children>
+                                          <Label text="LAB_0215" />
+                                          <Label layoutX="20.0" layoutY="20.0" text="LAB_0214" />
+                                          <Label layoutX="20.0" layoutY="52.0" text="LAB_0245" />
+                                          <Label layoutX="20.0" layoutY="84.0" text="LAB_0457" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                              <HBox alignment="BOTTOM_RIGHT" spacing="10.0">
+                                 <children>
+                                    <Button fx:id="labSessionAddNewBtn" mnemonicParsing="false" text="Add new" />
+                                    <Button fx:id="labSessionRemoveBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Remove" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" right="10.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="437.0" prefWidth="589.0" spacing="15.0" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <children>
+                              <Label styleClass="heading-1" text="Information" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="117.0" prefWidth="642.0" spacing="10.0">
+                                 <children>
+                                    <Label prefWidth="110.0" text="Instructors:" />
+                                    <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" prefHeight="74.0" prefWidth="522.0" HBox.hgrow="ALWAYS">
+                                       <content>
+                                          <VBox fx:id="labInstructorListVBox" maxWidth="1.7976931348623157E308" prefHeight="69.0" prefWidth="520.0">
+                                             <children>
+                                                <HBox maxWidth="1.7976931348623157E308" prefHeight="23.0" prefWidth="520.0">
+                                                   <children>
+                                                      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                                         <children>
+                                                            <Label text="K D W Wijesinghe" />
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="61.0" spacing="10.0">
+                                                         <children>
+                                                            <ImageView fitHeight="19.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../icons/plus.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                            <ImageView fitHeight="19.0" fitWidth="19.0" layoutX="144.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../icons/minus.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets right="10.0" />
+                                                   </padding>
+                                                </HBox>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                       </content>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </ScrollPane>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="503.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label prefHeight="22.0" prefWidth="110.0" text="Time Slot:" />
+                                          <TextField fx:id="labFromTimeSlot" prefHeight="34.0" prefWidth="89.0" HBox.hgrow="ALWAYS" />
+                                          <Label text="to" />
+                                          <TextField fx:id="labToTimeSlot" layoutX="130.0" layoutY="10.0" prefHeight="34.0" prefWidth="88.0" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="17.0" prefWidth="472.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label prefHeight="22.0" prefWidth="80.0" text="Weekday:" />
+                                          <ChoiceBox fx:id="labWeekdayDropDown" maxWidth="1.7976931348623157E308" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="17.0" prefWidth="472.0" spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="22.0" prefWidth="110.0" text="Sessions:" />
+                                          <TextField fx:id="labNumOfSessions" prefHeight="34.0" prefWidth="170.0" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="479.0" spacing="10.0">
+                                       <children>
+                                          <RadioButton fx:id="labOnceRadioBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="Once" HBox.hgrow="ALWAYS">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="lecfreq1" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton fx:id="labWeeklyRadioBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="23.0" prefWidth="100.0" text="Weekly" toggleGroup="$lecfreq1" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="54.0" prefHeight="17.0" prefWidth="472.0" spacing="10.0">
+                                 <children>
+                                    <Label prefWidth="110.0" text="Venue:" />
+                                    <TextField fx:id="labVenue" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="17.0" prefWidth="472.0" spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="22.0" prefWidth="110.0" text="From:" />
+                                          <DatePicker fx:id="labFromDateField" maxWidth="1.7976931348623157E308" prefHeight="34.0" prefWidth="57.0" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="17.0" prefWidth="472.0" spacing="10.0">
+                                       <children>
+                                          <Label prefWidth="110.0" text="To:" />
+                                          <DatePicker fx:id="labToDateField" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="15.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="317.0" spacing="10.0">
+                                       <children>
+                                          <Label prefHeight="22.0" prefWidth="110.0" text="Date:" />
+                                          <DatePicker fx:id="labDateField" maxWidth="1.7976931348623157E308" prefHeight="34.0" prefWidth="181.0" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <children>
+                                          <Button fx:id="labAllocateStudentsBtn" mnemonicParsing="false" prefHeight="34.0" prefWidth="224.0" text="Allocate Students" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="BOTTOM_RIGHT" spacing="10.0">
+                                 <children>
+                                    <Button fx:id="labInformationResetBtn" mnemonicParsing="false" text="Reset" />
+                                    <Button fx:id="labInformationUpdateBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Update" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" right="10.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content></Tab>
+  </tabs>
+</fx:root>

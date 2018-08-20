@@ -1,0 +1,19 @@
+/* Global Styles */
+
+.tab-pane {
+    -fx-tab-min-height: 45px;
+    -fx-tab-min-width: 200px;
+    -fx-font-size: 17px;
+    -fx-font-family: "Segoe UI";
+}
+
+.heading-1 {
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+}
+
+/* Local Styles */
+
+#bignumber {
+    -fx-font-size: 25px;
+}
