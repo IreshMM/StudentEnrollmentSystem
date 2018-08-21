@@ -1,14 +1,9 @@
 package com.nsbm.main;
 
 import com.nsbm.app.components.academic.Course;
-import com.nsbm.app.components.human.Student;
 import com.nsbm.app.components.human.UndergraduateStudent;
 import com.nsbm.app.database.DatabaseConnection;
-import com.nsbm.app.database.Insertable;
-import com.nsbm.ui.components.HomePage;
 import javafx.application.Application;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.sql.Date;
@@ -38,7 +33,7 @@ public class Main extends Application {
         st.setPhoto("D");
         st.setSignature("DFDF");
 
-        db.insertStudent(st);
+        db.insertPerson(st);
 
 
 /*        Parent root = new HomePage();

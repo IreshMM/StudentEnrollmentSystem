@@ -19,4 +19,12 @@ public class Lecturer extends StaffMember {
     public void removeFromDatabase() {
 
     }
+
+    public void setFacultyID(int facultyID) {
+        this.facultyID = facultyID;
+    }
+
+    public int getFacultyID() {
+        return facultyID;
+    }
 }

@@ -6,6 +6,11 @@ public class Faculty implements Insertable {
     private int facultyID;
     private String facultyName;
 
+    public Faculty(int facultyID, String facultyName) {
+        this.facultyID = facultyID;
+        this.facultyName = facultyName;
+    }
+
     @Override
     public void insertToDatabase() {
 
