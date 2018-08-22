@@ -3,6 +3,7 @@ package com.nsbm.app.components.human;
 import com.nsbm.app.database.Insertable;
 
 import java.sql.Date;
+import java.sql.SQLException;
 
 public abstract class Person implements Insertable {
     private String firstName;
@@ -14,6 +15,24 @@ public abstract class Person implements Insertable {
     private String address;
     private String photo;
     private String signature;
+
+    @Override
+    public void insertToDatabase() {
+        try {
+            databaseConnection.insertPerson(this, false);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void updateOnDatabase() {
+        try {
+            databaseConnection.insertPerson(this, true);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -86,4 +105,5 @@ public abstract class Person implements Insertable {
     public void setSignature(String signature) {
         this.signature = signature;
     }
+
 }

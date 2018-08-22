@@ -1,40 +1,68 @@
 package com.nsbm.main;
 
-import com.nsbm.app.components.academic.Course;
-import com.nsbm.app.components.human.UndergraduateStudent;
+import com.nsbm.app.components.academic.Enrollment;
+import com.nsbm.app.components.human.Instructor;
+import com.nsbm.app.components.human.Student;
 import com.nsbm.app.database.DatabaseConnection;
+import com.nsbm.ui.components.*;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-import java.sql.Date;
+import java.util.LinkedList;
 
 public class Main extends Application {
-    public static String databaseURL;
-    public static String databaseUsername;
-    public static String databasePassword;
+    public static String databaseURL = "localhost:3306";
+    public static String databaseUsername = "root";
+    public static String databasePassword = "";
+
+    /* Globally available UI elements */
+    public static BillingPage billingPage;
+    public static DegreeManagementChoicePage degreeManagementChoicePage;
+    public static DegreeManagementPage degreeManagementPage;
+    public static HomePage homePage;
+    public static ManagementSelectUserPage selectStudentPage;
+    public static ManagementSelectUserPage selectStaffMemberPage;
+    public static ResourcesPage resourcesPage;
+    public static StaffManagementPage staffManagementPage;
+    public static StudentManagementPage studentManagementPage;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        DatabaseConnection db = new DatabaseConnection("localhost:3306", "root", "");
+        Instructor instructor = (Instructor) Instructor.retrieveFromDatabase("110004", DatabaseConnection.BYID);
 
-        UndergraduateStudent st = new UndergraduateStudent();
+        instructor.setFirstName("Iresh");
+        System.out.println(instructor.getFirstName());
+        instructor.updateOnDatabase();
 
-        st.setNicNumber("19101873730v");
-        st.setIndexNumber(18007299);
+/*        DatabaseConnection db = new DatabaseConnection("localhost:3306", "root", "");
+
+        Student student = (Student) db.retrievePerson("2", DatabaseConnection.STUDENT, DatabaseConnection.BYID);
+
+        System.out.println(student.getFirstName());
+
+        LinkedList<Enrollment> linkedList = db.retriveEnrollments(student);
+
+        for (Enrollment enrollment: linkedList) {
+            System.out.println(enrollment.getSubject().getTitle());
+        }*/
+
+       /*  UndergraduateStudent st = new UndergraduateStudent();
+
+        st.setNicNumber("19741873730v");
+        st.setIndexNumber(18017299);
         st.setFirstName("Renee");
         st.setLastName("Corpes");
         st.setDateOfBirth(new Date(1997, 4, 20));
         st.setAddress("18 Maple Wood Place");
-        st.setPhone("94764374759");
-        st.setEmail("rcorpes0@barnesandnoble.com");
-        st.setCourse(new Course("SB02", "The title"));
-        st.setPhone("4545");
-        st.setPhoto("D");
-        st.setSignature("DFDF");
+        st.setPhone("94764374859");
+        st.setEmail("rcorpes0@barnddesandnoble.com");
+        st.setCourse(new Course("SB02", "The title", new Faculty(1, "SCHOOL OF ENGINEERING")));
+        st.setPhone("45445");
+        st.setPhoto("sd");
+        st.setSignature("gh");
 
-        db.insertPerson(st);
-
+        db.insertPerson(st);*/
 
 /*        Parent root = new HomePage();
 

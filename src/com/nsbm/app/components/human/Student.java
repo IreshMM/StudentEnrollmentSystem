@@ -1,14 +1,17 @@
 package com.nsbm.app.components.human;
 
 import com.nsbm.app.components.academic.Course;
+import com.nsbm.app.database.DatabaseConnection;
+
+import java.sql.SQLException;
 
 public abstract class Student extends Person {
 
-    private String studentID;
+    private int studentID;
     private int indexNumber;
     private Course course;
 
-    public void setStudentID(String studentID) {
+    public void setStudentID(int studentID) {
         this.studentID = studentID;
     }
 
@@ -20,7 +23,7 @@ public abstract class Student extends Person {
         this.course = course;
     }
 
-    public String getStudentID() {
+    public int getStudentID() {
         return studentID;
     }
 
@@ -30,5 +33,18 @@ public abstract class Student extends Person {
 
     public Course getCourse() {
         return course;
+    }
+
+    public static int getCount() {
+        try {
+            return databaseConnection.getCount("Student");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static Student retrieveFromDatabase(String key, int FLAG) throws SQLException {
+        return (Student) databaseConnection.retrievePerson(key, DatabaseConnection.STUDENT, DatabaseConnection.BYID);
     }
 }

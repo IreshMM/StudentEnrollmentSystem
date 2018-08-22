@@ -1,5 +1,6 @@
 package com.nsbm.ui.components;
 
+import com.nsbm.app.components.human.StaffMember;
 import com.nsbm.ui.resources.Resource;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -68,6 +69,18 @@ public class StaffManagementPage extends TabPane {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void initField(StaffMember staffMember) {
+        firstNameTextField.setText(staffMember.getFirstName());
+        lastNameTextField.setText(staffMember.getLastName());
+        staffIDTextField.setText(String.valueOf(staffMember.getStaffID()));
+        nicNoTextField.setText(staffMember.getNicNumber());
+        addressTextField.setText(staffMember.getAddress());
+        emailTextField.setText(staffMember.getEmail());
+        dateOfBirthDateField.setValue(staffMember.getDateOfBirth().toLocalDate());
+        phoneTextField.setText(staffMember.getPhone());
+
     }
 
 }

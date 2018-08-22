@@ -16,12 +16,12 @@ public class Lecture extends Session implements Insertable {
     }
 
     @Override
-    public Insertable retrieveFromDatabase() {
-        return null;
+    public void removeFromDatabase() {
+
     }
 
     @Override
-    public void removeFromDatabase() {
+    public void updateOnDatabase() {
 
     }
 

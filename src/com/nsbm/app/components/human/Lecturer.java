@@ -1,6 +1,9 @@
 package com.nsbm.app.components.human;
 
+import com.nsbm.app.database.DatabaseConnection;
 import com.nsbm.app.database.Insertable;
+
+import java.sql.SQLException;
 
 public class Lecturer extends StaffMember {
     private int facultyID;
@@ -8,11 +11,6 @@ public class Lecturer extends StaffMember {
     @Override
     public void insertToDatabase() {
 
-    }
-
-    @Override
-    public Insertable retrieveFromDatabase() {
-        return null;
     }
 
     @Override
@@ -26,5 +24,19 @@ public class Lecturer extends StaffMember {
 
     public int getFacultyID() {
         return facultyID;
+    }
+
+    public static int getCount() {
+        try {
+            return databaseConnection.getCount("Lecturer");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static Lecturer retrieveFromDatabase(String key, int FLAG) throws SQLException {
+        Lecturer lecturer = (Lecturer) databaseConnection.retrievePerson(key, DatabaseConnection.INSTRUCTOR, FLAG);
+        return lecturer;
     }
 }

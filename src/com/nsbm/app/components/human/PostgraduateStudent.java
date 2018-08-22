@@ -7,18 +7,8 @@ public class PostgraduateStudent extends Student {
     private PostQualification[] postQualifications;
 
     @Override
-    public void insertToDatabase() {
-
-    }
-
-    @Override
     public void removeFromDatabase() {
 
-    }
-
-    @Override
-    public PostgraduateStudent retrieveFromDatabase() {
-        return null;
     }
 
     public void setPostQualifications(PostQualification ...postQualifications) {

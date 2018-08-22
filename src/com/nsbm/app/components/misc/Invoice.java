@@ -4,21 +4,22 @@ import com.nsbm.app.components.academic.Enrollment;
 import com.nsbm.app.components.human.Student;
 import com.nsbm.app.database.Insertable;
 
+import java.sql.SQLException;
+
 public class Invoice implements Insertable {
     private Student student;
-    private String invoiceID;
+    private int invoiceID;
     private String description;
     private double amount;
     private Enrollment[] enrollments;
 
     @Override
     public void insertToDatabase() {
-
-    }
-
-    @Override
-    public Insertable retrieveFromDatabase() {
-        return null;
+        try {
+            databaseConnection.insertInvoice(this);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -26,11 +27,16 @@ public class Invoice implements Insertable {
 
     }
 
+    @Override
+    public void updateOnDatabase() {
+
+    }
+
     public void setStudent(Student student) {
         this.student = student;
     }
 
-    public void setInvoiceID(String invoiceID) {
+    public void setInvoiceID(int invoiceID) {
         this.invoiceID = invoiceID;
     }
 
@@ -50,7 +56,7 @@ public class Invoice implements Insertable {
         return student;
     }
 
-    public String getInvoiceID() {
+    public int getInvoiceID() {
         return invoiceID;
     }
 

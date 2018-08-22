@@ -1,12 +1,19 @@
 package com.nsbm.ui.components;
 
+import com.nsbm.app.components.academic.Course;
+import com.nsbm.app.components.human.Student;
+import com.nsbm.app.components.human.UndergraduateStudent;
+import com.nsbm.app.database.Insertable;
 import com.nsbm.ui.resources.Resource;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 
+import java.beans.EventHandler;
 import java.io.IOException;
+import java.sql.Date;
 
 public class StudentManagementPage extends TabPane {
 
@@ -108,6 +115,7 @@ public class StudentManagementPage extends TabPane {
 
     @FXML
     private Button subjectSelectionSaveChangesBtn;
+
     public StudentManagementPage() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(Resource.fxml + "managestudent.fxml"));
         loader.setController(this);
@@ -118,6 +126,45 @@ public class StudentManagementPage extends TabPane {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        init_Buttons();
+    }
+
+    private void init_Buttons() {
+        personalDetailsSaveChangesBtn.setOnAction(new javafx.event.EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Student student = new UndergraduateStudent();
+
+                student.setNicNumber(nicNoField.getText());
+                student.setIndexNumber(Integer.parseInt(indexNoField.getText()));
+                student.setFirstName(firstNameField.getText());
+                student.setLastName(lastNameField.getText());
+                student.setDateOfBirth(Date.valueOf(dateOfBirthField.getValue()));
+                student.setAddress(addressField.getText());
+                student.setPhone(phoneField.getText());
+                student.setEmail(emailField.getText());
+                Course course = new Course();
+                course.setCourseCode("SE01");
+                student.setCourse(course);
+
+                student.insertToDatabase();
+
+                System.out.println("Here");
+            }
+        });
+    }
+
+    public void initFields(Student student) {
+        firstNameField.setText(student.getFirstName());
+        lastNameField.setText(student.getLastName());
+        studentIDField.setText(String.valueOf(student.getStudentID()));
+        indexNoField.setText(String.valueOf(student.getIndexNumber()));
+        nicNoField.setText(student.getNicNumber());
+        addressField.setText(student.getAddress());
+        emailField.setText(student.getEmail());
+        dateOfBirthField.setValue(student.getDateOfBirth().toLocalDate());
+        phoneField.setText(student.getPhone());
     }
 
 }

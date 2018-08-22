@@ -8,18 +8,25 @@ public class Subject implements Insertable {
     private double fee;
     private boolean optional;
 
+    public Subject(String subjectCode, String title, double fee, boolean optional) {
+        this.subjectCode = subjectCode;
+        this.title = title;
+        this.fee = fee;
+        this.optional = optional;
+    }
+
     @Override
     public void insertToDatabase() {
 
     }
 
     @Override
-    public Insertable retrieveFromDatabase() {
-        return null;
+    public void removeFromDatabase() {
+
     }
 
     @Override
-    public void removeFromDatabase() {
+    public void updateOnDatabase() {
 
     }
 

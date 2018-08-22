@@ -8,18 +8,25 @@ public class Assessment implements Insertable {
     private String title;
     private char resultGrade;
 
+    public Assessment(int assessmentID, String assementType, String title, char resultGrade) {
+        this.assessmentID = assessmentID;
+        this.assementType = assementType;
+        this.title = title;
+        this.resultGrade = resultGrade;
+    }
+
     @Override
     public void insertToDatabase() {
 
     }
 
     @Override
-    public Insertable retrieveFromDatabase() {
-        return null;
+    public void removeFromDatabase() {
+
     }
 
     @Override
-    public void removeFromDatabase() {
+    public void updateOnDatabase() {
 
     }
 

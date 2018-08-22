@@ -1,6 +1,8 @@
 package com.nsbm.ui.components;
 
 import com.nsbm.ui.resources.Resource;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -20,7 +22,7 @@ public class ManagementSelectUserPage extends VBox {
     @FXML
     private Button continueBtn;
 
-    public ManagementSelectUserPage() {
+    public ManagementSelectUserPage(String title) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(Resource.fxml + "managementstartpage.fxml"));
         loader.setController(this);
         loader.setRoot(this);
@@ -31,6 +33,15 @@ public class ManagementSelectUserPage extends VBox {
             e.printStackTrace();
         }
 
-
+        titleText.setText(title);
     }
+
+    public void setContinueBtnEvent(EventHandler<ActionEvent> event) {
+        continueBtn.setOnAction(event);
+    }
+
+    public TextField getStudentID() {
+        return studentID;
+    }
+
 }

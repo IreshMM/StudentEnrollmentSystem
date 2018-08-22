@@ -2,10 +2,14 @@ package com.nsbm.app.components.academic;
 
 import com.nsbm.app.database.Insertable;
 
+import java.sql.SQLException;
+
 public class Course implements Insertable {
     private String courseCode;
     private String title;
     private Faculty faculty;
+
+    public Course() { }
 
     public Course(String courseCode, String title, Faculty faculty) {
         this.courseCode = courseCode;
@@ -19,12 +23,12 @@ public class Course implements Insertable {
     }
 
     @Override
-    public Insertable retrieveFromDatabase() {
-        return null;
+    public void removeFromDatabase() {
+
     }
 
     @Override
-    public void removeFromDatabase() {
+    public void updateOnDatabase() {
 
     }
 
@@ -43,4 +47,14 @@ public class Course implements Insertable {
     public String getTitle() {
         return title;
     }
+
+    public static int getCount() {
+        try {
+            return databaseConnection.getCount("Course");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 }

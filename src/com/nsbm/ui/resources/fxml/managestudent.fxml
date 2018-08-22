@@ -30,13 +30,13 @@
                               <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="705.0" spacing="15.0">
                                  <children>
                                     <Label prefWidth="98.0" text="First Name" />
-                                    <TextField fx:id="firstNameField" HBox.hgrow="ALWAYS" />
+                                    <TextField fx:id="firstNameField" text="Merrili" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="25.0" prefHeight="41.0" prefWidth="705.0" spacing="15.0">
                                  <children>
                                     <Label prefWidth="98.0" text="Last Name" />
-                                    <TextField fx:id="lastNameField" HBox.hgrow="ALWAYS" />
+                                    <TextField fx:id="lastNameField" text="Lines" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="193.0" prefHeight="41.0" prefWidth="705.0" spacing="15.0">
@@ -48,13 +48,13 @@
                               <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="25.0" prefHeight="41.0" prefWidth="705.0" spacing="15.0">
                                  <children>
                                     <Label prefWidth="98.0" text="Index No" />
-                                    <TextField fx:id="indexNoField" HBox.hgrow="ALWAYS" />
+                                    <TextField fx:id="indexNoField" text="18005627" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="137.0" prefHeight="41.0" prefWidth="705.0" spacing="15.0">
                                  <children>
                                     <Label prefWidth="98.0" text="NIC No" />
-                                    <TextField fx:id="nicNoField" HBox.hgrow="ALWAYS" />
+                                    <TextField fx:id="nicNoField" text="19825233289v" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                               <HBox prefHeight="100.0" prefWidth="200.0" spacing="15.0">
@@ -64,13 +64,13 @@
                                           <Insets top="10.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <TextArea fx:id="addressField" prefHeight="100.0" prefWidth="279.0" HBox.hgrow="ALWAYS" />
+                                    <TextArea fx:id="addressField" prefHeight="100.0" prefWidth="279.0" text="97095 Messerschmidt Lane" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="78.0" prefHeight="41.0" prefWidth="705.0" spacing="15.0">
                                  <children>
                                     <Label prefWidth="98.0" text="Email" />
-                                    <TextField fx:id="emailField" HBox.hgrow="ALWAYS" />
+                                    <TextField fx:id="emailField" text="mlines0@cam.ac.uk" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" spacing="15.0">
@@ -84,7 +84,7 @@
                               <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="243.0" prefHeight="41.0" prefWidth="705.0" spacing="15.0">
                                  <children>
                                     <Label prefWidth="98.0" text="Phone" />
-                                    <TextField fx:id="phoneField" HBox.hgrow="ALWAYS" />
+                                    <TextField fx:id="phoneField" text="94784793245" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                            </children>

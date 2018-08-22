@@ -4,10 +4,12 @@ import com.nsbm.app.components.human.Student;
 import com.nsbm.app.components.misc.Invoice;
 import com.nsbm.app.database.Insertable;
 
+import java.util.LinkedList;
+
 public class Enrollment implements Insertable {
     private Student student;
     private Subject subject;
-    private Assessment[] assessments;
+    private LinkedList<Assessment> assessments;
     private char resultGrade;
     private Invoice invoice;
 
@@ -17,12 +19,12 @@ public class Enrollment implements Insertable {
     }
 
     @Override
-    public Insertable retrieveFromDatabase() {
-        return null;
+    public void removeFromDatabase() {
+
     }
 
     @Override
-    public void removeFromDatabase() {
+    public void updateOnDatabase() {
 
     }
 
@@ -34,16 +36,12 @@ public class Enrollment implements Insertable {
         this.subject = subject;
     }
 
-    public void setAssessments(Assessment ...assessments) {
+    public void setAssessments(LinkedList<Assessment> assessments) {
         this.assessments = assessments;
     }
 
     public void setResultGrade(char resultGrade) {
         this.resultGrade = resultGrade;
-    }
-
-    public void setInvoice(Invoice invoice) {
-        this.invoice = invoice;
     }
 
     public Student getStudent() {
@@ -54,12 +52,16 @@ public class Enrollment implements Insertable {
         return subject;
     }
 
-    public Assessment[] getAssessments() {
+    public LinkedList<Assessment> getAssessments() {
         return assessments;
     }
 
     public char getResultGrade() {
         return resultGrade;
+    }
+
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
     }
 
     public Invoice getInvoice() {
