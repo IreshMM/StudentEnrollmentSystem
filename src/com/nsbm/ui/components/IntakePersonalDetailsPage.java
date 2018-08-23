@@ -2,6 +2,7 @@ package com.nsbm.ui.components;
 
 import com.nsbm.app.components.human.Student;
 import com.nsbm.app.components.human.UndergraduateStudent;
+import com.nsbm.main.Main;
 import com.nsbm.ui.resources.Resource;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -102,6 +103,7 @@ public class IntakePersonalDetailsPage extends VBox {
         student.setEmail(emailField.getText());
         student.setDateOfBirth(Date.valueOf(dateOfBirthField.getValue()));
         student.setPhoto(phoneField.getText());
+        student.setRegistrationYear(Main.getDate().getYear());
 
         studentIntakePage.setStudent(student);
     }

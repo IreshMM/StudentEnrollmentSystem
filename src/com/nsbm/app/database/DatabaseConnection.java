@@ -58,10 +58,11 @@ public class DatabaseConnection {
         String queryEnd = ";";
 
         if (person instanceof Student) {
-            specializedColumns = ", IndexNumber, CourseCode";
-            additionalValues = ", ?, ?";
+            specializedColumns = ", IndexNumber, CourseCode, RegistrationYear";
+            additionalValues = ", ?, ?, ?";
             tableName = "Student";
-            queryUpdate = queryUpdate + ", IndexNumber = VALUES(IndexNumber), CourseCode = VALUES(CourseCode)";
+            queryUpdate = queryUpdate + ", IndexNumber = VALUES(IndexNumber), CourseCode = VALUES(CourseCode), " +
+                    "RegistrationYear = VALUES(RegistrationYear)";
 
             if(update) {
                 specializedColumns = specializedColumns + ", StudentID";
@@ -241,7 +242,7 @@ public class DatabaseConnection {
 
     }
 
-    public LinkedList<Enrollment> retriveEnrollments(Student student) throws SQLException {
+    public LinkedList<Enrollment> retrieveEnrollments(Student student) throws SQLException {
         LinkedList<Enrollment> enrollments = new LinkedList<>();
 
         int studentID = student.getStudentID();
@@ -266,11 +267,16 @@ public class DatabaseConnection {
                     "WHERE SubjectCode = '" + cachedResultSet.getString("SubjectCode") + "';";
 
             ResultSet subjectResultSet = statement.executeQuery(querySubject);
-            subjectResultSet.next();
-            Subject studentSubject = new Subject(subjectResultSet.getString("SubjectCode"),
-                    subjectResultSet.getString("Title"),
-                    subjectResultSet.getInt("Fee"),
-                    subjectResultSet.getBoolean("Optional"));
+            Subject studentSubject = null;
+            if(subjectResultSet.next()){
+                studentSubject = new Subject(subjectResultSet.getString("SubjectCode"),
+                        subjectResultSet.getString("Title"),
+                        subjectResultSet.getInt("Fee"),
+                        subjectResultSet.getBoolean("Optional"),
+                        subjectResultSet.getInt("Semester"),
+                        subjectResultSet.getInt("Year_"));
+            }
+
 
             /* Retrieve assessments */
             LinkedList<Assessment> assessments = null;
@@ -332,6 +338,25 @@ public class DatabaseConnection {
         }
 
         return faculties;
+    }
+
+    public LinkedList<Subject> getSubjects(Course course) throws SQLException {
+        LinkedList<Subject> subjects = new LinkedList<>();
+        String query = "SELECT * FROM Subject_ WHERE CourseCode = '" + course.getCourseCode() + "';";
+
+        ResultSet resultSet = statement.executeQuery(query);
+
+        while(resultSet.next()) {
+            Subject subject = new Subject(resultSet.getString("SubjectCode"),
+                    resultSet.getString("Title"),
+                    resultSet.getInt("Fee"),
+                    resultSet.getBoolean("Optional"),
+                    resultSet.getInt("Semester"),
+                    resultSet.getInt("Year_"));
+
+            subjects.add(subject);
+        }
+        return subjects;
     }
 
     /* HELPER FUNCTIONS FOR RETRIEVING COUNTS */

@@ -70,6 +70,10 @@ public class Course implements Insertable {
         return databaseConnection.getCourses(false);
     }
 
+    public LinkedList<Subject> getSubjects() throws SQLException {
+        return databaseConnection.getSubjects(this);
+    }
+
     @Override
     public String toString() {
         return title;

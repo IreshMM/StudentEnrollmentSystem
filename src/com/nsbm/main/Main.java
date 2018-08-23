@@ -7,6 +7,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.Date;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.LinkedList;
 
 public class Main extends Application {
@@ -43,7 +46,7 @@ public class Main extends Application {
 
         System.out.println(student.getFirstName());
 
-        LinkedList<Enrollment> linkedList = db.retriveEnrollments(student);
+        LinkedList<Enrollment> linkedList = db.retrieveEnrollments(student);
 
         for (Enrollment enrollment: linkedList) {
             System.out.println(enrollment.getSubject().getTitle());
@@ -79,5 +82,13 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    /* Global helper functions */
+    public static LocalDate getDate() {
+        Date date = new Date();
+        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+        return localDate;
     }
 }

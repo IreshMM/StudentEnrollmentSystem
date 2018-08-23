@@ -7,12 +7,17 @@ public class Subject implements Insertable {
     private String title;
     private double fee;
     private boolean optional;
+    private int semester;
+    private int year;
 
-    public Subject(String subjectCode, String title, double fee, boolean optional) {
+    public Subject(String subjectCode, String title, double fee, boolean optional, int semester, int year) {
         this.subjectCode = subjectCode;
         this.title = title;
         this.fee = fee;
         this.optional = optional;
+        this.semester = semester;
+        this.year = year;
+
     }
 
     @Override
@@ -46,6 +51,12 @@ public class Subject implements Insertable {
         this.optional = optional;
     }
 
+    public void setSemester(int semester) {
+        this.semester = semester;
+    }
+
+
+
     public String getSubjectCode() {
         return subjectCode;
     }
@@ -61,4 +72,10 @@ public class Subject implements Insertable {
     public boolean isOptional() {
         return optional;
     }
+
+    public int getSemester() {
+        return semester;
+    }
+
+
 }
