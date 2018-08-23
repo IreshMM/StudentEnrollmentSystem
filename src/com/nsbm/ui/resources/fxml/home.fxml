@@ -102,11 +102,6 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </ChoiceBox>
-                        <ImageView fx:id="settingsBtn" fitHeight="17.25" fitWidth="17.25" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icons/icon_setting.png" />
-                           </image>
-                        </ImageView>
                      </children>
                      <padding>
                         <Insets right="15.0" />

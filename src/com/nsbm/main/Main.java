@@ -35,7 +35,7 @@ public class Main extends Application {
 
     /* Globally available references */
     public static LinkedList<Faculty> faculties;
-    public static Faculty currentFaculty;
+    public static Faculty currentFaculty = new Faculty(2, "SCHOOL OF COMPUTING");
 
     @Override
     public void start(Stage primaryStage) throws Exception{

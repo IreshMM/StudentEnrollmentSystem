@@ -9,6 +9,7 @@ import com.nsbm.app.database.DatabaseConnection;
 import com.nsbm.main.Main;
 import com.nsbm.ui.resources.Resource;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Separator;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
@@ -34,9 +36,6 @@ public class HomePage extends BorderPane {
     private Label numberOfdegProg;
 
     @FXML
-    private ImageView settingsBtn;
-
-    @FXML
     private Button stdManagementSideBtn;
 
     @FXML
@@ -52,7 +51,9 @@ public class HomePage extends BorderPane {
     private Button billingSideBtn;
 
     @FXML
-    private ChoiceBox<Faculty> selectFacultyDropDown;
+    private ChoiceBox<Object> selectFacultyDropDown;
+
+    private Button studentIntakeBtn;
 
     public HomePage() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(Resource.fxml + "home.fxml"));
@@ -85,14 +86,14 @@ public class HomePage extends BorderPane {
         academicStaffSideBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Main.homePage.setCenter(Main.selectStaffMemberPage);
+                Main.homePage.setCenter(Main.staffManagementPage);
             }
         });
 
         degreeProgramsSideBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Main.homePage.setCenter(Main.degreeManagementChoicePage);
+                Main.homePage.setCenter(Main.degreeManagementPage);
             }
         });
 
@@ -109,6 +110,7 @@ public class HomePage extends BorderPane {
                 Main.homePage.setCenter(Main.billingPage);
             }
         });
+
     }
 
     public void init_Pages() {
@@ -152,7 +154,12 @@ public class HomePage extends BorderPane {
     }
 
     public void initFields() {
-        selectFacultyDropDown.setItems(FXCollections.observableArrayList(Main.faculties));
+
+        ObservableList<Object> ob = FXCollections.observableArrayList(Main.faculties);
+        ob.add(new Separator());
+        ob.add("STUDENT INTAKE");
+        selectFacultyDropDown.setItems(ob);
         selectFacultyDropDown.getSelectionModel().select(Main.currentFaculty);
+
     }
 }
