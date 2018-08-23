@@ -3,6 +3,7 @@ package com.nsbm.app.components.academic;
 import com.nsbm.app.database.Insertable;
 
 import java.sql.SQLException;
+import java.util.LinkedList;
 
 public class Course implements Insertable {
     private String courseCode;
@@ -48,6 +49,14 @@ public class Course implements Insertable {
         return title;
     }
 
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
+
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
     public static int getCount() {
         try {
             return databaseConnection.getCount("Course");
@@ -55,6 +64,15 @@ public class Course implements Insertable {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public static LinkedList<Course> getCourses(boolean postgraduate) throws SQLException {
+        return databaseConnection.getCourses(false);
+    }
+
+    @Override
+    public String toString() {
+        return title;
     }
 
 }

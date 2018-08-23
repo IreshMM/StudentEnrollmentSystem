@@ -2,6 +2,9 @@ package com.nsbm.app.components.academic;
 
 import com.nsbm.app.database.Insertable;
 
+import java.sql.SQLException;
+import java.util.LinkedList;
+
 public class Faculty implements Insertable {
     private int facultyID;
     private String facultyName;
@@ -40,5 +43,14 @@ public class Faculty implements Insertable {
 
     public String getFacultyName() {
         return facultyName;
+    }
+
+    @Override
+    public String toString() {
+        return facultyName;
+    }
+
+    public static LinkedList<Faculty> getFaculties() throws SQLException {
+        return databaseConnection.getFaculties();
     }
 }

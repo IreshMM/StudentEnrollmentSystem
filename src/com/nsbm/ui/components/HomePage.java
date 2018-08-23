@@ -1,17 +1,20 @@
 package com.nsbm.ui.components;
 
 import com.nsbm.app.components.academic.Course;
+import com.nsbm.app.components.academic.Faculty;
 import com.nsbm.app.components.human.Instructor;
 import com.nsbm.app.components.human.Lecturer;
 import com.nsbm.app.components.human.Student;
 import com.nsbm.app.database.DatabaseConnection;
 import com.nsbm.main.Main;
 import com.nsbm.ui.resources.Resource;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -48,6 +51,9 @@ public class HomePage extends BorderPane {
     @FXML
     private Button billingSideBtn;
 
+    @FXML
+    private ChoiceBox<Faculty> selectFacultyDropDown;
+
     public HomePage() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(Resource.fxml + "home.fxml"));
         loader.setController(this);
@@ -62,6 +68,7 @@ public class HomePage extends BorderPane {
         init_Pages();
         init_Buttons();
         refreshLabels();
+        initFields();
 
         this.setCenter(Main.selectStudentPage);
 
@@ -142,5 +149,10 @@ public class HomePage extends BorderPane {
         numberOfRegisteredStd.setText(String.valueOf(Student.getCount()));
         numberOfacademicStaff.setText(String.valueOf(Lecturer.getCount() + Instructor.getCount()));
         numberOfdegProg.setText(String.valueOf(Course.getCount()));
+    }
+
+    public void initFields() {
+        selectFacultyDropDown.setItems(FXCollections.observableArrayList(Main.faculties));
+        selectFacultyDropDown.getSelectionModel().select(Main.currentFaculty);
     }
 }

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="1005.0" spacing="20.0" styleClass="tab-pane" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="1005.0" spacing="20.0" styleClass="tab-pane" stylesheets="@../css/stylesheet.css" type="VBox" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="CENTER" prefHeight="48.0" prefWidth="1005.0">
          <children>
@@ -31,4 +31,4 @@
    <padding>
       <Insets left="20.0" right="20.0" />
    </padding>
-</VBox>
+</fx:root>

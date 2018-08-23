@@ -3,6 +3,7 @@ package com.nsbm.app.database;
 import com.nsbm.app.components.academic.*;
 import com.nsbm.app.components.human.*;
 import com.nsbm.app.components.misc.Invoice;
+import com.nsbm.main.Main;
 
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetFactory;
@@ -192,12 +193,15 @@ public class DatabaseConnection {
                 person = new UndergraduateStudent();
             }
 
-            Faculty studentFaculty = new Faculty(resultSet.getInt("FacultyID"), resultSet.getString("FacultyName"));
-            Course studentCourse = new Course(resultSet.getString("courseCode"), resultSet.getString("courseTitle"), studentFaculty);
+            Faculty studentFaculty = new Faculty(resultSet.getInt("FacultyID"),
+                    resultSet.getString("FacultyName"));
+            Course studentCourse = new Course(resultSet.getString("courseCode"),
+                    resultSet.getString("courseTitle"), studentFaculty);
 
             ((Student) person).setStudentID(resultSet.getInt("StudentID"));
             ((Student) person).setCourse(studentCourse);
             ((Student) person).setIndexNumber(resultSet.getInt("IndexNumber"));
+            ((Student) person).setRegistrationYear(resultSet.getInt("RegistrationYear"));
 
         } else {
             if(TYPE == INSTRUCTOR) {
@@ -294,6 +298,40 @@ public class DatabaseConnection {
         }
 
         return enrollments;
+    }
+
+    public LinkedList<Course> getCourses(boolean postgraduate) throws SQLException {
+        LinkedList<Course> courses = new LinkedList<Course>();
+
+        String query = "SELECT * FROM Course WHERE Postgraduate = " + String.valueOf(postgraduate) +
+                " AND FacultyID = " + Main.currentFaculty.getFacultyID();
+
+        ResultSet resultSet = statement.executeQuery(query);
+
+        while(resultSet.next()) {
+            Course course = new Course();
+
+            course.setCourseCode(resultSet.getString("CourseCode"));
+            course.setTitle(resultSet.getString("Title"));
+
+            courses.add(course);
+        }
+
+        return courses;
+    }
+
+    public LinkedList<Faculty> getFaculties() throws SQLException {
+        LinkedList<Faculty> faculties = new LinkedList<>();
+        String query = "SELECT * FROM Faculty;";
+
+        ResultSet resultSet = statement.executeQuery(query);
+
+        while(resultSet.next()) {
+            Faculty faculty = new Faculty(resultSet.getInt("FacultyID"), resultSet.getString("FacultyName"));
+            faculties.add(faculty);
+        }
+
+        return faculties;
     }
 
     /* HELPER FUNCTIONS FOR RETRIEVING COUNTS */

@@ -1,15 +1,21 @@
 package com.nsbm.main;
 
+import com.nsbm.app.components.academic.Faculty;
 import com.nsbm.ui.components.*;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.LinkedList;
+
 public class Main extends Application {
     public static String databaseURL = "localhost:3306";
     public static String databaseUsername = "root";
     public static String databasePassword = "";
+
+    /* Hardcoded administrator password */
+    public static String password = "admin";
 
     /* Globally available UI elements */
     public static BillingPage billingPage;
@@ -21,6 +27,12 @@ public class Main extends Application {
     public static ResourcesPage resourcesPage;
     public static StaffManagementPage staffManagementPage;
     public static StudentManagementPage studentManagementPage;
+    public static Scene currentScene;
+    public static Stage currentStage;
+
+    /* Globally available references */
+    public static LinkedList<Faculty> faculties;
+    public static Faculty currentFaculty;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -54,10 +66,13 @@ public class Main extends Application {
 
         db.insertPerson(st);*/
 
-        Parent root = new HomePage();
+        Parent root = new LoginPage();
+
+        currentScene = new Scene(root);
+        currentStage = primaryStage;
 
         primaryStage.setTitle("Student Enrollment NSBM Green University");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(currentScene);
         primaryStage.show();
     }
 

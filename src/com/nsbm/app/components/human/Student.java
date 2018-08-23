@@ -10,6 +10,7 @@ public abstract class Student extends Person {
     private int studentID;
     private int indexNumber;
     private Course course;
+    private int registrationYear;
 
     public void setStudentID(int studentID) {
         this.studentID = studentID;
@@ -21,6 +22,14 @@ public abstract class Student extends Person {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    public void setRegistrationYear(int registrationYear) {
+        this.registrationYear = registrationYear;
+    }
+
+    public int getRegistrationYear() {
+        return registrationYear;
     }
 
     public int getStudentID() {
