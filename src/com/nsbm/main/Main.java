@@ -1,14 +1,10 @@
 package com.nsbm.main;
 
-import com.nsbm.app.components.academic.Enrollment;
-import com.nsbm.app.components.human.Instructor;
-import com.nsbm.app.components.human.Student;
-import com.nsbm.app.database.DatabaseConnection;
 import com.nsbm.ui.components.*;
 import javafx.application.Application;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.util.LinkedList;
 
 public class Main extends Application {
     public static String databaseURL = "localhost:3306";
@@ -28,12 +24,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-
-        Instructor instructor = (Instructor) Instructor.retrieveFromDatabase("110004", DatabaseConnection.BYID);
-
-        instructor.setFirstName("Iresh");
-        System.out.println(instructor.getFirstName());
-        instructor.updateOnDatabase();
 
 /*        DatabaseConnection db = new DatabaseConnection("localhost:3306", "root", "");
 
@@ -64,11 +54,11 @@ public class Main extends Application {
 
         db.insertPerson(st);*/
 
-/*        Parent root = new HomePage();
+        Parent root = new HomePage();
 
         primaryStage.setTitle("Student Enrollment NSBM Green University");
         primaryStage.setScene(new Scene(root));
-        primaryStage.show();*/
+        primaryStage.show();
     }
 
 

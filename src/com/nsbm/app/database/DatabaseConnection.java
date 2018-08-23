@@ -80,7 +80,7 @@ public class DatabaseConnection {
 
             if(person instanceof Lecturer) {
                 specializedColumns = specializedColumns + ", FacultyID";
-                additionalValues = ", ?";
+                additionalValues = additionalValues + ", ?";
                 tableName = "Lecturer";
                 queryUpdate = queryUpdate + ", FacultyID = VALUES(FacultyID)";
             }

@@ -67,7 +67,6 @@ public class HomePage extends BorderPane {
 
     }
 
-
     public void init_Buttons() {
         stdManagementSideBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -120,14 +119,20 @@ public class HomePage extends BorderPane {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    Student currentStudent = Student.retrieveFromDatabase(String.valueOf(Main.selectStudentPage.getStudentID()),
+                    Student currentStudent = Student.retrieveFromDatabase(Main.selectStudentPage.getStudentID(),
                             DatabaseConnection.BYID);
                     Main.studentManagementPage.initFields(currentStudent);
+                    Main.homePage.setCenter(Main.studentManagementPage);
                 } catch (SQLException e) {
                     e.printStackTrace();
                     //Expression to show error box
                 }
+            }
+        });
 
+        Main.selectStaffMemberPage.setContinueBtnEvent(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
 
             }
         });

@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class Instructor extends StaffMember {
     @Override
-    public void insertToDatabase() {
-
+    public void insertToDatabase() throws SQLException {
+        databaseConnection.insertPerson(this, false);
     }
 
     @Override

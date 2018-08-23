@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import java.beans.EventHandler;
 import java.io.IOException;
 import java.sql.Date;
+import java.sql.SQLException;
 
 public class StudentManagementPage extends TabPane {
 
@@ -116,6 +117,8 @@ public class StudentManagementPage extends TabPane {
     @FXML
     private Button subjectSelectionSaveChangesBtn;
 
+    private Student currentStudent;
+
     public StudentManagementPage() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(Resource.fxml + "managestudent.fxml"));
         loader.setController(this);
@@ -126,7 +129,6 @@ public class StudentManagementPage extends TabPane {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         init_Buttons();
     }
 
@@ -134,28 +136,20 @@ public class StudentManagementPage extends TabPane {
         personalDetailsSaveChangesBtn.setOnAction(new javafx.event.EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Student student = new UndergraduateStudent();
 
-                student.setNicNumber(nicNoField.getText());
-                student.setIndexNumber(Integer.parseInt(indexNoField.getText()));
-                student.setFirstName(firstNameField.getText());
-                student.setLastName(lastNameField.getText());
-                student.setDateOfBirth(Date.valueOf(dateOfBirthField.getValue()));
-                student.setAddress(addressField.getText());
-                student.setPhone(phoneField.getText());
-                student.setEmail(emailField.getText());
-                Course course = new Course();
-                course.setCourseCode("SE01");
-                student.setCourse(course);
-
-                student.insertToDatabase();
-
-                System.out.println("Here");
+                loadFromFields();
+                try {
+                    currentStudent.insertToDatabase();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
 
     public void initFields(Student student) {
+        currentStudent = student;
+
         firstNameField.setText(student.getFirstName());
         lastNameField.setText(student.getLastName());
         studentIDField.setText(String.valueOf(student.getStudentID()));
@@ -167,4 +161,15 @@ public class StudentManagementPage extends TabPane {
         phoneField.setText(student.getPhone());
     }
 
+    public void loadFromFields() {
+        currentStudent.setFirstName(firstNameField.getText());
+        currentStudent.setLastName(lastNameField.getText());
+        currentStudent.setStudentID(Integer.parseInt(studentIDField.getText()));
+        currentStudent.setIndexNumber(Integer.parseInt(indexNoField.getText()));
+        currentStudent.setNicNumber(nicNoField.getText());
+        currentStudent.setAddress(addressField.getText());
+        currentStudent.setEmail(emailField.getText());
+        currentStudent.setDateOfBirth(Date.valueOf(dateOfBirthField.getValue()));
+        currentStudent.setPhone(phoneField.getText());
+    }
 }

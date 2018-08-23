@@ -40,8 +40,8 @@ public class ManagementSelectUserPage extends VBox {
         continueBtn.setOnAction(event);
     }
 
-    public TextField getStudentID() {
-        return studentID;
+    public String getStudentID() {
+        return studentID.getText();
     }
 
 }

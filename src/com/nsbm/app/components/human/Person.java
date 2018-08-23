@@ -17,7 +17,7 @@ public abstract class Person implements Insertable {
     private String signature;
 
     @Override
-    public void insertToDatabase() {
+    public void insertToDatabase() throws SQLException {
         try {
             databaseConnection.insertPerson(this, false);
         } catch (SQLException e) {

@@ -9,8 +9,8 @@ public class Lecturer extends StaffMember {
     private int facultyID;
 
     @Override
-    public void insertToDatabase() {
-
+    public void insertToDatabase() throws SQLException {
+        databaseConnection.insertPerson(this, false);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class Lecturer extends StaffMember {
     }
 
     public static Lecturer retrieveFromDatabase(String key, int FLAG) throws SQLException {
-        Lecturer lecturer = (Lecturer) databaseConnection.retrievePerson(key, DatabaseConnection.INSTRUCTOR, FLAG);
+        Lecturer lecturer = (Lecturer) databaseConnection.retrievePerson(key, DatabaseConnection.LECTURER, FLAG);
         return lecturer;
     }
 }
